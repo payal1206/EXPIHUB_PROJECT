@@ -1,0 +1,20 @@
+.admin-wrapper{
+    display: flex;
+    height: calc(100%-66px);
+}
+
+.admin-wrapper .left-sidebar{
+    flex: 2;
+    height: 100%;
+    background: rgb(90, 39, 15);
+}
+
+.admin-wrapper .left-sidebar ul{
+    list-style: none;
+}
+
+.admin-wrapper .admin-content{
+    flex: 8;
+    height: 100%;
+    
+}

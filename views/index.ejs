@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Learn. Share. Grow | Expihub.com</title>
+    <!-- CSS Stylesheet  -->
+    <link rel="stylesheet" href="css1/style.css">
+    <link rel="stylesheet" href="contact.css">
+    <!-- Font links -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+    <!-- Link for the logo in tab  -->
+    <link rel="icon" type="image/png" href="img/logonew.png">
+    <!-- Meet Our Team Social Media Icons  -->
+    <script src="https://kit.fontawesome.com/2550a92b94.js" crossorigin="anonymous"></script>
+    <!-- Ion Icons for FAQ  -->
+    <script src="https://unpkg.com/ionicons@5.4.0/dist/ionicons.js"></script>
+
+</head>
+
+<body>
+    <!-- Navigation Bar -->
+    <header>
+        <nav id="navbar" class="background h-nav-resp nav">
+            <img src="img/logonew.png" id="logo" alt="expihub logo">
+            <ul class="navlist v-class-resp">
+                <li class="li1"><a href="#navbar">Home</a></li>
+                <li><a href="#about">About Us</a></li>
+                <% console.log(user)  %> 
+        <!-- <% if(user) { %>
+        <a class="nav-link ml-2" href="/logout">logout</a>
+        <% } else { %>
+          <a class="nav-link ml-2" href="/login">login</a> 
+          <a class="nav-link ml-2" href="/register">register</a>
+        <% } %> -->
+        <% if(user) { %>
+            <li class="nav-link ml-2">
+                <form id="logout" action="/logout" method="POST">
+                    <a onclick="document.getElementById('logout').submit()" href="#">Logout</a>
+                </form>
+            </li>
+            <% } else { %>
+            <li class="nav-link ml-2"><a href="/register">Register</a></li>
+            <li class="nav-link ml-2"><a href="/login">Login</a></li>
+            <% } %>
+           
+                   
+                <li><a href="#contactus">Contact Us</a></li>
+               <div class="burger">
+                <div class="line"></div>
+                <div class="line"></div>
+                <div class="line"></div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Home Section  -->
+    <section id="home">
+        <div class="home-container hom">
+            <div class="home-items">
+                <h4>LEARN</h4>
+                <p>Learn from the experiences of others.</p>
+            </div>
+            <div class="home-items share">
+                <h4>SHARE</h4>
+                <p>Share what best you've got.</p>
+            </div>
+            <div class="home-items">
+                <h4>GROW</h4>
+                <p>Grow together as Unity is strength.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Us Section  -->
+    <section id="about">
+        <div class="about-container">
+            <div class="firstHalf">
+                <h2>About Us</h2>
+                <p>A combined initiative by four banasthalites to make your life in Banasthali at ease. Your experience
+                    at <strong>Banasthali Vidyapith</strong> matters to us. Hence, here's a free platform for you where
+                    you can interact
+                    with your batchmates including seniors and juniors. This platform has some additional features like
+                    you can get or upload previous year question papers or books here. All you need to do is Signup on
+                    our website and enjoy all its features. So, buckle-up and start your journey at
+                    Expihub(Learn.Share.Grow).</p>
+                <p><a href="#meet-section"><strong>Know more!</strong></a></p>
+            </div>
+            <div class="secondHalf">
+                <img src="img/logonew.png" alt="expihub logo">
+            </div>
+        </div>
+    </section>
+
+    <!-- Our Features Section  -->
+    <section id="features">
+        <div class="heading">
+            <h2>Our Features</h2>
+        </div>
+
+        <div id="features-container">
+            <div class="features-container1">
+                <div class="feature-items">
+                    <div class="image1">
+                        <img src="img/dissforum.jpg" class="im1" alt="Discussion Forum">
+                    </div>
+                    <div class="text">
+                        <h3><a href="/forum">Discussion Forum</a></h3>
+                        <p>Come and discuss your points. Ask your doubts either academic or general
+                            from other students. And answer to a doubt if you can.</p>
+                    </div>
+                </div>
+
+                <div class="feature-items">
+                    <div class="image2">
+                        <img src="img/questionP.jpg" class="im2" alt="previous year question papers">
+                    </div>
+                    <div class="text">
+                        <h3><a href="/paper">Papers</a></h3>
+                        <p>This section contains previous year question papers. Who upload these
+                            papers? Ofcourse, you :</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="features-container2">
+                <div class="feature-items">
+                    <div class="image3">
+                        <img src="img/books.jpg" class="im3" alt="academic books">
+                    </div>
+                    <div class="text">
+                        <h3><a href="/books">Books</a></h3>
+                        <p>You might find an academic book you wanted to study here. And you're
+                            free to upload some also.</p>
+                    </div>
+                </div>
+
+                <div class="feature-items">
+                    <div class="image4">
+                        <img src="img/interviewEx.jpg" class="im4" alt="interview experience">
+                    </div>
+                    <div class="text">
+                        <h3><a href="/interviewexperience">Interview Experiences</a></h3>
+                        <p>Share and get to know different interview experiences of other
+                            banasthalites like you.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Meet Section  -->
+
+    <section id="meet-section">
+        <h1>Meet Our Team</h1>
+        <div class="container">
+            <!-- One -->
+            <div class="our-team">
+                <div class="pic">
+                    <img src="img/yashee.jpeg" alt="">
+                </div>
+                <div class="team-content">
+                    <h3 class="title">Yashee Jain</h3>
+                    <span class="post">Computer Science</span>
+                </div>
+                <ul class="social">
+                    <li><a href="#" class="fab fa-facebook"></a></li>
+                    <li><a href="#" class="fab fa-twitter"></a></li>
+                    <li><a href="https://www.instagram.com/yasheejain1196/?hl=bn" target="_blank"
+                            class="fab fa-instagram"></a></li>
+                    <li><a href="http://www.linkedin.com/in/yashee-jain-5171b31a0" target="_blank"
+                            class="fab fa-linkedin"></a></li>
+                </ul>
+            </div>
+            <!-- Two -->
+            <div class="our-team">
+                <div class="pic">
+                    <img src="img/pragya.jpg" alt="">
+                </div>
+                <div class="team-content">
+                    <h3 class="title">Pragya Keena</h3>
+                    <span class="post">Computer Science</span>
+                </div>
+                <ul class="social">
+                    <li><a href="https://instagram.com/pragyaa.k?igshid=1x7efdg0bdy04" target="_blank"
+                            class="fab fa-instagram"></a></li>
+                    <li><a href="#" class="fab fa-linkedin"></a></li>
+                </ul>
+            </div>
+
+            <!-- Three -->
+            <div class="our-team">
+                <div class="pic">
+                    <img src="img/payal.jpeg" alt="">
+                </div>
+                <div class="team-content">
+                    <h3 class="title">Payal Jain</h3>
+                    <span class="post">Information Technology</span>
+                </div>
+                <ul class="social">
+                    <li><a href="#" class="fab fa-instagram"></a></li>
+                    <li><a href="https://www.linkedin.com/in/payal-jain-8542071a0" target="_blank"
+                            class="fab fa-linkedin"></a></li>
+                </ul>
+            </div>
+
+            <!-- Fourth -->
+            <div class="our-team">
+                <div class="pic">
+                    <img src="img/eti.jpg" alt="">
+                </div>
+                <div class="team-content">
+                    <h3 class="title">Eti Thakur</h3>
+                    <span class="post">Computer Science</span>
+                </div>
+                <ul class="social">
+                    <li><a href="https://www.facebook.com/eti.thakur.52" target="_blank" class="fab fa-facebook"></a>
+                    </li>
+                    <li><a href="https://twitter.com/Eti30363942" target="_blank" class="fab fa-twitter"></a></li>
+                    <li><a href="https://www.instagram.com/etithakur__/" target="_blank" class="fab fa-instagram"></a>
+                    </li>
+                    <li><a href="https://www.linkedin.com/in/eti-thakur-56728b1aa/" target="_blank"
+                            class="fab fa-linkedin"></a></li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- FAQs -->
+
+    <section id="faq">
+        <div class="container1">
+            <h2>Frequently Asked Questions</h2>
+            <div class="accordian">
+                <div class="accordian-item" id="question1">
+                    <a class="accordian-link" href="#question1">
+                        How do I get started using ExpiHub?
+                        <ion-icon name="add-outline"></ion-icon>
+                        <!-- <ion-icon name="remove-outline"></ion-icon> -->
+                    </a>
+                    <div class="answer">
+                        <p>First, create an account on ExpiHub using your Banasthali e-mail address. Once done, you can either post/download PYQ papers and notes, post/ read people’s interview experiences or post and answer various questions on our discussion forum.</p>
+                    </div>
+                </div>
+
+
+                <div class="accordian-item" id="question2">
+                    <a class="accordian-link" href="#question2">
+                        How do I ask and answer a question on ExpiHub?
+                        <ion-icon name="add-outline"></ion-icon>
+                        <!-- <ion-icon name="remove-outline"></ion-icon> -->
+                    </a>
+                    <div class="answer">
+                        <p> Once you have created an ExpiHub account, you can post or answer questions. 
+                            In the discussion forum section select the type of your question.</p>
+                    </div>
+                </div>
+
+
+                <div class="accordian-item" id="question3">
+                    <a class="accordian-link" href="#question3">
+                        How do I post a question paper or book on expihub?
+                        <ion-icon name="add-outline"></ion-icon>
+                        <!-- <ion-icon name="remove-outline"></ion-icon> -->
+                    </a>
+                    <div class="answer">
+                        <p> Choose what you want to post select post, fill the required information and add your question paper or notes in pdf form.</p>
+                    </div>
+                </div>
+
+
+
+
+                <div class="accordian-item" id="question4">
+                    <a class="accordian-link" href="#question4">
+                        Can a non-banasthalite make an account on expiHub?
+                        <ion-icon name="add-outline"></ion-icon>
+                        <!-- <ion-icon name="remove-outline"></ion-icon> -->
+                    </a>
+                    <div class="answer">
+                        <p>No, an individual who possesses a banasthali email address can only register on ExpiHub.</p>
+                    </div>
+                </div>
+
+
+
+                <div class="accordian-item" id="question5">
+                    <a class="accordian-link" href="#question5">
+                        Can I also upload word file or jog files?
+                        <ion-icon name="add-outline"></ion-icon>
+                        <!-- <ion-icon name="remove-outline"></ion-icon> -->
+                    </a>
+                    <div class="answer">
+                        <p>No, you can only upload the required question paper/book in PDF form.</p>
+                    </div>
+                </div>
+
+
+                <div class="accordian-item" id="question6">
+                    <a class="accordian-link" href="#question6">
+                        How do I change my password on ExpiHub?
+                        <ion-icon name="add-outline"></ion-icon>
+                        <!-- <ion-icon name="remove-outline"></ion-icon> -->
+                    </a>
+                    <div class="answer">
+                        <p>Once you click on the ‘Forgot password’ option you will receive a code on your registered email-id. You should enter that code on the website when asked and then change your password.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    
+    <section id="contactus"class="contact">
+        <div class="content">
+            <h2>Get in Touch</h2>
+        </div>
+        <div class="containerContact">
+            <div class="contactInfo">
+                <div class="box">
+                    <div class="icon"><i class="fa fa-heart-o" aria-hidden="true"></i></div>
+                    <div class="text">
+                        <h3>We'd love to hear from you!</h3>
+                    </div>
+                </div>
+            </div>
+            <div class="contactForm">
+                <form action="">
+                    <h2>Send Message</h2>
+                    <div class="inputBox">
+                        <input type="text" name="fullName" required="required">
+                        <span>Full Name</span>
+                    </div>
+                    <div class="inputBox">
+                        <input type="email" name="email" required="required">
+                        <span>Email</span>
+                    </div>
+                    <div class="inputBox">
+                        <input type="tel" name="phone" required="required">
+                        <span>Phone number</span>
+                    </div>
+                    <div class="inputBox">
+                        <textarea required="required"></textarea>
+                        <span>Type your message...</span>
+                    </div>
+                    <div class="inputBox">
+                        <input type="submit" name="" value="Send">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+
+
+
+
+
+
+
+    <!-- Footer  -->
+
+    <footer id="foot">
+        <div class="containerFooter">
+            <div class="sec aboutus">
+                <h2>About Us</h2>
+                <p>A combined initiative by four banasthalites to make your life in Banasthali at ease. Your experience at <strong>Banasthali Vidyapith</strong> matters to us. Hence, here's a free platform for you where you can interact with your batchmates including seniors and juniors. This platform has some additional features like you can get or upload previous year question papers or books here. All you need to do is Signup on our website and enjoy all its features. So, buckle-up and start your journey at Expihub(Learn.Share.Grow).</p>
+            </div>
+
+            <div class="sec quickLinks">
+                <h2>Quick Links</h2>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="/login">Login</a></li>
+                    <li><a href="/register">Register</a></li>
+                    <li><a href="#features">Our Features</a></li>
+                    <li><a href="#meet-section">Our Team</a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+    <div class="copyrightText">
+        <p>Copyright &copy; www.expihub.com. All rights reserved!</p>
+    </div>
+    <script src="../"></script>
+</body>
+
+</html>

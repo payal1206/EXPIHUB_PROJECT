@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>
+        Expihub
+    </title>
+<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+<link href="http://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@700&family=Squada+One&family=Yantramanav:wght@300&display=swap" rel="stylesheet">       
+<link rel="stylesheet" type="text/css" href="./css/booksmain.css">
+</head>
+<body>
+  <!--  -->
+
+
+
+  <!-- title -->
+  <div class="jumbotron" style="background-image: linear-gradient(rgba(37,116,169, 0.8),rgba(0,0,0,0.4)),url('images/bookstitle.jfif');">
+      <h1>THE ULTIMATE GUIDE TO FREE BOOKS</h1>
+      <p>Welcome to your freindly neighborhood Library.Get access to exclusive coursebooks, references and manymore.</p>
+      <button id="modal-btn" class="btn-primary btn-lg">ADD BOOK</button>
+  </div>
+
+
+  <!-- search bar -->
+  <div>    
+  <form class="well form-search" action="/searchbook" method="POST">
+      <div>
+          <label class="control-label" for="i">BOOK NAME:</label>
+          <input type="text" style="width: 200px;" id="i" name="name" class="input-small" placeholder="Name of the book">
+          &nbsp;&nbsp;
+          <label class="control-label" for="i">BOOK AUTHOR:</label>
+          <input type="text" style="width: 200px;" id="i" name="Author" class="input-small" placeholder="Author's name">
+          &nbsp;&nbsp;
+          <label class="control-label" for="i">EDITION:</label>
+          <input type="text" style="width: 200px;" id="i" name="edition" class="input-small" placeholder="Book's edition">
+          &nbsp;&nbsp;
+          <label class="control-label" for="i">PUBLISHER:</label>
+          <input type="text" style="width: 200px;" id="i" name="Publisher" class="input-small" placeholder="Publisher's name">
+          &nbsp;&nbsp;
+          <button id="search-by-id-button" type="submit" class="btn-md btn-primary">SEARCH BOOK</button>
+          
+      </div>
+     </form>
+  </div>
+
+<!--table-->
+<br></br>
+<style>
+  table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+  }
+  
+  td, th {
+    border: 1px solid #eedee3dd;
+    padding: 8px;
+    text-align: center;
+  }
+
+  th,th h2{
+    font-family: 'Squada One';
+   
+  }
+  
+  tr:nth-child(even) {
+    background-color: #dfdeeedd;
+  }
+  </style>
+  </head>
+  <body>
+  
+  
+  <table>
+    <tr >
+      <th><h3>BOOK NAME</h3></th>
+      <th><h3>BOOK AUTHOR</h3> </th>
+      <th><h3>PUBLICATIONS</h3> </th>
+      <th><h3>EDITION</h3> </th>
+      <th><h3>BOOK'S URL</h3> </th>
+      
+    </tr>
+    <% if(books.length>0){
+      %>
+      <% books.forEach((book)=>{%>                             
+    <tr>
+      <td class="uppercase"><%=book.BookName%></td>
+      <td class="uppercase"><%=book.AuthorName%></td>
+      <td class="uppercase"><%=book.Publications%></td>
+      <td class="uppercase"><%=book.Edition%></td>
+      <td ><%=book.Imagename%></td>
+  
+      <td>
+    </tr>
+    <%})%>
+    <%}else{
+      console.log("hiiiiiiiiiiiiiiiiiiiii")
+    }%>
+</table>
+  
+<div id="my-modal" class="modal">
+  <div class="modal-content">
+  <div class="modal-header">
+      <span class="close">&times;</span>
+      <h2>Books Upload</h2>
+  </div>
+  <div class="modal-body">      
+    <form action="/books"  method="POST"  role="form" enctype="multipart/form-data">
+          <div class="input_grp">
+              <div class="input_wrap">
+                  <label for="papercode">Book Name</label>
+                  <input type="text" name="BookName" id="papercode" placeholder="E.g.-Let us c">
+              </div>
+          </div>
+          <div class="input_grp">
+              <div class="input_wrap">
+                  <label for="papercode">Author Name</label>
+                  <input type="text" id="papercode" name="AuthorName" placeholder="E.g.-Yashwant Kanetkar">
+              </div>
+          </div>
+          <div class="input_grp">
+              <div class="input_wrap">
+                  <label for="edition">Edition</label>
+                  <input type="number" id="edition" name="Edition" placeholder="E.g.-1/2/3">
+              </div>
+          </div>
+          <div class="input_grp">
+              <div class="input_wrap">
+                  <label for="publication">Publications</label>
+                  <input type="text" id="publication"    name="Publications" placeholder="E.g.-Dhanpat Rai">
+              </div>
+          </div>
+          <div class="input_grp">
+              <div class="input_wrap">
+                  <label class="form-label" for="customFile">Attach the Book PDF</label>
+                  <input type="file" class="form-control"  name="myfile" id="customFile" />
+              </div>
+          </div>  
+          <div class="input_grp">
+                  <button type="submit" class="btn btn-primary " id="submit">Request Upload</button>
+          </div>              
+      </form>
+      
+  </div>
+  <div class="modal-footer">
+      <h3>@Expihub</h3>
+  </div>
+  </div>
+</div>
+
+
+
+<script src="./javascript/booksmain.js"></script>
+<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.4.js"></script>
+<script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+</body>    
+</html>
+

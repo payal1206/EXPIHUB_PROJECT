@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+</style>
+</head>
+<body>
+
+<h2>ADMIN TABLE</h2>
+
+<table>
+  <tr>
+    <th>BookName</th>
+    <th>Publications</th>
+    <th>Imagename</th>
+    <th>status</th>
+  </tr>
+  <% if(books.length>0){
+    %>
+    <% books.forEach((book)=>{%>                             
+  <tr>
+    <td><%=book.BookName%></td>
+
+    <td><%=book.Publications%></td>
+    <td><%=book.Imagename%></td>
+
+    <td>
+      <form action="/statuschange" method="POST">
+        <input type="hidden" name="fileid" value="<%= book._id %>">
+      <!-- <select name="status" onchange="this.form.submit()"><option value="true">
+        activated</option>
+        <option value="false">
+              deactivated
+        </option>
+     </select> -->
+     <label class="radio-inline" onchange="this.form.submit()">
+      <input type="radio" value="true" name="status"><span>Activate</span>
+    </label>
+    <label class="radio-inline" onchange="this.form.submit()">
+      <input type="radio" value="false" name="status"><span>Deactivate</span>
+    </label>
+    
+    </form>
+    </td>
+    </tr>
+    <%})%>
+    <%}%>
+</table>
+
+</body>
+</html>

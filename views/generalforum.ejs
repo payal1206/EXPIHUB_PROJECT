@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>
+        Expihub
+    </title>
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+	<link href="http://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@700&family=Squada+One&family=Yantramanav:wght@300&display=swap" rel="stylesheet">       
+	<link rel="stylesheet" type="text/css" href="./css/generalforum.css">
+</head>
+<body>
+  
+    <!-- title -->
+    <div class="class1" style="background-image: linear-gradient(rgba(37,116,169, 0.8),rgba(0,0,0,0.4)),url('images/generaltitle.jfif');">
+        <h1 >GENERAL DICUSSION FORUM</h1>
+        <p>A PLATFORM WHERE STUDENTS POST QUERIES AND ANSWER QUESTIONS ABOUT GENERAL TOPICS. <br>IT IS A FREE COMMUNITY WHERE PEOPLE WRITE QUALITY ANSWERS THAT HELP OTHER USERS.</p>
+    </div>
+
+
+    
+    <!-- QUESTION BAR -->
+    <div>    
+        <form class="well form-search" action="/generalforum" method="POST">
+            <div>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <label class="control-label" for="query" >Post your question</label>
+                <br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <textarea id="query" name="question" rows="2" cols="110" placeholder="Write your Question here."></textarea>
+                &nbsp;
+                <button id="search-by-id-button" type="submit" class="btn-md btn-primary">POST</button>
+            </div>
+        </form>
+    </div>
+    
+        <!--ANYTING YOU WANNA ADD FURTHER  -->
+        <div class="container">
+            <% if(generalquery.length > 0) { %>
+              <% generalquery.forEach((forum) => { %>
+                <div class="jumbotron" style="padding-top:7px; padding-bottom: 7px;background-image: linear-gradient(rgba(37,116,169, 0.8),rgba(255, 255, 255, 0.4)),url('images/backgroundinterview.png');" ><p><h4><%= forum.question %>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <a href="/generalforum/<%= forum._id %>" >...( <%= forum.comments.length %> ) Comments <span  style="color:black"class="glyphicon glyphicon glyphicon-pencil" aria-hidden="true"></span></a></h4> </p>  
+                  <p><h6><br><%= forum.created.toDateString() %></h6></p>    
+                </div>
+              <% })
+            }
+            else { %>
+                <h1><b>Post your Query Now!!!</b></h1>
+            <% } %>
+          
+        </div>
+
+    <!-- SCRIPTS -->
+    <script src="./javascript/generalforum.js"></script>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.4.js"></script>
+    <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+</body>    
+</html>

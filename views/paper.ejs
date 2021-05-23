@@ -1,0 +1,197 @@
+<!-- Button trigger modal -->
+
+<!-- <%- include("./partials/header") %> -->
+<!DOCTYPE html>
+<html>
+<head>
+	<title>
+        Expihub
+    </title>
+<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+<link href="http://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@700&family=Squada+One&family=Yantramanav:wght@300&display=swap" rel="stylesheet">       
+<link rel="stylesheet" type="text/css" href="./css/questionpapersmain.css">
+</head>
+<body>
+  <!--  -->
+
+
+
+   <!-- title -->
+   <div class="jumbotron" style="padding-top:7px;background-image: linear-gradient(rgba(37,116,169, 0.8),rgba(0,0,0,0.4)),url('images/questiontitle.jfif');">
+    <h1>LOTS OF PREVIOUS YEAR PAPERS. 100% FREE</h1>
+    <p>Welcome to your friendly neighborhood Library.Get access to exclusive coursebooks, references and many more.</p>
+    <button id="modal-btn" class="btn-primary btn-lg">ADD QUESTION PAPER</button>
+</div>
+
+
+
+  <!-- search bar -->
+  <div>    
+  <form action="/search" method="GET" class="well form-search">
+      <div>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          <label class="control-label" for="i">PAPER-CODE:</label>
+          <input type="text" style="width: 150px;" id="i" name="PC" class="input-small" placeholder="CS303">
+          &nbsp;&nbsp;
+          <label class="control-label">YEAR:</label>
+          <input type="number" name="YR" style="width: 150px;">
+          &nbsp;&nbsp;
+          <label class="control-label">SEMESTER:</label>
+          <input type="number" style="width: 150px;" id="i1" name="Sem" class="input-small" placeholder="1,2,3---">
+          &nbsp;&nbsp; 
+          
+          <label class="control-label">TYPE:</label>
+           <select name="PT" style="width: 150px;">
+              <option value="Periodical-1">Periodical-1</option>
+              <option value="Periodical-2">Periodical-2</option>
+              <option value="Semester">Semester</option>
+          </select>
+          &nbsp;&nbsp;
+          <button id="search-by-id-button" name="submit" type="submit" class="btn-md btn-primary">SEARCH PAPER</button>
+          
+      </div>
+     </form>
+  </div>
+
+
+<!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" >
+    Upload QuestionsPapers
+  </button> -->
+<!--table-->
+<br></br>
+<style>
+  table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+  }
+  
+  td, th {
+    border: 1px solid #eedee3dd;
+    text-align: center;
+    padding: 8px;
+  }
+  
+  th,th h2{
+    font-family: 'Squada One';
+  }
+  
+
+  tr:nth-child(even) {
+    background-color: #dfdeeedd;
+  }
+  </style>
+  </head>
+  <body>
+  
+    <table>
+      <tr>
+        <th><h3>PAPERCODE</h3></th>
+        <th><h3>PAPER NAME</h3></th>
+        <th><h3>SEMESTER</h3></th>
+        <th><h3>EXAMINATION YEAR</h3></th>
+        <th><h3>PAPER-TYPE</h3></th>
+        <th><h3>SUBJECT</h3></th>
+        <th><h3>QUESTION PAPER'S URL</h3></th>
+        
+      </tr>
+      <% if(papers.length>0){
+        %>
+        <% papers.forEach((paper)=>{%>                             
+      <tr>
+        <td class="uppercase"><%=paper.papercode%></td>
+        <td class="uppercase"><%=paper.papername%></td>
+        <td class="uppercase"><%=paper.semester%></td>
+        <td class="uppercase"><%=paper.yearofexam%></td>
+        <td class="uppercase"><%=paper.papertype%></td>
+        <td class="uppercase"><%=paper.subject%></td>
+        <td ><%=paper.Imagename%></td>
+    
+        <td>
+      </tr>
+      <%})%>
+      <%}else{%>
+
+        <td colspan="12"> NO RECORD FOUND></td>
+        <%} %>
+  </table>
+   
+      
+
+ <div id="my-modal" class="modal">
+    <div class="modal-content">
+    <div class="modal-header">
+        <span class="close">&times;</span>
+        <h2>Paper Upload</h2>
+    </div>
+    <div class="modal-body">      
+        <form action="/paper"  method="POST"  role="form" enctype="multipart/form-data">
+            <div class="input_grp">
+                <div class="input_wrap">
+                    <label for="papercode">Paper Code</label>
+                    <input type="text" id="papercode"  name="papercode" placeholder="E.g.-CS302">
+                </div>
+                <div class="input_wrap">
+                    <label for="fname">Paper Name</label>
+                    <input type="text" name="papername" id="fname" placeholder="E.g.-Complex Number">
+                </div>
+            </div>
+            <div class="input_grp">
+                <div class="input_wrap">
+                    <label for="semester">Semester</label>
+                    <input type="number" id="semester" name="semester" placeholder="1/2/3/4/5/6/7/8">
+                </div>
+                <div class="input_wrap">
+                    <label for="fname">Year of Examination</label>
+                    <input type="number" id="fname"name="yearofexam" placeholder="e.g.-2020">
+                </div>
+            </div>
+            
+            <div class="input_grp">
+                
+                <label>Subject</label>
+                
+                <label class="radio-inline">
+                    <input type="radio" value="CSE" name="subject"><span>CSE</span>
+                  </label>
+                  <label class="radio-inline">
+                    <input type="radio" value="IT" name="subject"><span>IT</span>
+                  </label>
+                
+            </div>
+            <div class="input_grp">   
+                    <label>Paper Type</label>
+                    <label class="radio-inline">
+                        <input type="radio" value="Periodical-1" name="papertype" ><span>Periodical-1</span>
+                      </label>
+                      <label class="radio-inline">
+                        <input type="radio" value="Periodical-2" name="papertype" ><span>Periodical-2</span>
+                      </label>
+                      <label class="radio-inline">
+                        <input type="radio" value="Semester" name="papertype"><span>Semester</span>
+                      </label>
+                
+            </div>
+            
+            
+            <label class="form-label" for="customFile">Attach the Question Paper PDF</label>
+            <input type="file" class="form-control" name="Imagename" id="customFile" />
+
+            <div class="input_grp">
+                <button type="submit" class="btn btn-primary " id="submit">Request Upload</button>
+        </div>  
+        </form>
+        
+    </div>
+
+
+
+<script src="./javascript/questionpapersmain.js"></script>
+<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.4.js"></script>
+<script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+</body>    
+</html>
+

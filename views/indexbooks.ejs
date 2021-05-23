@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Candal|Lora">
+
+    <link rel="stylesheet" href="../css/style.css">
+
+    <link rel="stylesheet" href="../css/admin.css">
+
+    <title>ADMIN</title>
+</head>
+
+<body>
+    <header>
+        <div class="logo">
+            <h1 class="logo-text"><span>Expi</span>Hub</h1>
+        </div>
+        <i class="fa fa-bars menu-toggle"></i>
+        <ul class="nav">
+            <li>
+                <a href="#">
+                    <i class="fa fa-user"></i>
+                    Admin 
+                    <i class="fa fa-chevron-down" style="font-size: .8em;"></i>
+                </a>
+                <ul>
+                    <li><a href="#" class="logout">Logout</a></li>
+                </ul>
+            </li>
+        </ul>
+    </header>
+
+    <div class="Admin-wrapper">
+
+    <!-- left sidebar-->
+        
+    <div class="left-sidebar">
+        <ul>
+            <li><a href="/admin/indexbooks">Manage Books</a></li>
+            <li><a href="/admin/indexpaper">Manage Papers</a></li>
+            <li><a href="/admin/indexuser">Manage Users</a></li>
+        </ul>
+    </div>
+    <!-- // left sidebar-->
+    
+    <!-- admin content-->
+    <div class="admin-content">
+
+        <div class="content">
+            <h2 class="page-title">Manage Books</h2>
+
+            <table>
+                <thead>
+                    <th>BookName</th>
+                    <th>Publications</th>
+                    <th>Imagename</th>
+                    <th>status</th>
+                </thead>
+                <tbody>
+                    
+    <% if(books.length>0){
+        books.forEach((book)=>{%>                             
+    <tr>
+      <td><%=book.BookName%></td>
+  
+      <td><%=book.Publications%></td>
+      <td><%=book.Imagename%></td>
+  
+      <td>
+        <form action="/statuschange" method="POST">
+          <input type="hidden" name="fileid" value="<%= book._id %>">
+          <input type="hidden" name="bookname" value="<%=book.BookName %>">
+
+       <label class="radio-inline">
+        <input type="radio" value="true" name="status"><span>Activate</span>
+      </label>
+      <label class="radio-inline">
+        <input type="radio" value="false" name="status"><span>Deactivate</span>
+      </label>
+      <button type="submit" name=submit>Submit</button>
+      </form>
+      </td>
+      </tr>
+      <%})%>
+      <%}%>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+ 
+    </div>
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    
+</body>
+</html>

@@ -1,0 +1,156 @@
+body{
+    margin: 0px;
+    padding: 0px;
+}
+
+header{
+    background: rgb(22, 22, 102);
+    height: 66px;
+}
+
+header *{
+    color: white;
+}
+
+header .logo{
+    float: left;
+    height: inherit;
+    margin-left: 2em;
+}
+
+
+header ul{
+    float: right;
+    margin: 0px;
+    padding: 0px;
+}
+
+
+header .menu-toggle{
+    display: none;
+}
+
+header .logo-text{
+    margin: 9px;
+    font-family: 'Candal',serif;
+}
+
+header ul li{
+    float: left;
+    position: relative;
+    list-style: none;
+}
+
+header ul li ul{
+    position: relative;
+    top: 30px;
+    right:0px ;
+    width: 180px;
+    display: none;
+    
+    float: right;
+}
+
+header ul li:hover ul{
+    display: block;
+}
+
+header ul li ul li a{
+    padding: 5px;
+    background: white ;
+    color: #444;
+}
+
+
+header ul li a{
+    display: block;
+    padding: 12px;
+    font-size: 1.1em;
+    text-decoration: none;
+    height: inherit;
+}
+
+
+header ul li a:hover{
+    background: rgb(114, 114, 187);
+    transition: 0.5s;
+    height: 30px;
+}
+
+.Admin-wrapper{
+    display: flex;
+    height: calc(100%-66px);
+}
+
+.Admin-wrapper .left-sidebar{
+    flex: 2;
+    height: 100%;
+    background: rgb(22, 174, 224);
+}
+
+.Admin-wrapper .left-sidebar ul{
+    list-style: none;
+    margin: 0px;
+    padding: 0px;
+    color: snow;
+}
+
+.Admin-wrapper .left-sidebar ul li{
+    color: lightcyan;
+}
+
+.Admin-wrapper .left-sidebar ul li a{
+  padding: 18px; 
+  display: block;
+  border-bottom: 1px solid paleturquoise;
+}
+
+.Admin-wrapper .left-sidebar ul li a:hover{
+    background: rgb(4, 133, 133);
+}
+
+.Admin-wrapper .admin-content{
+    flex: 8;
+    height: 100%;
+    padding: 40px 100px 100px;
+    overflow-y: scroll;
+}
+
+.admin-content .page-title{
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.btn{
+    padding: 4px  3px;
+    background: rgb(0, 30, 128) ;
+    color: white;
+    border: 1px solid transparent;
+    border-radius: .25rem;
+}
+
+table{
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 1.1rem;
+}
+
+th, td{
+    padding: 15px;
+    text-align: left;
+    border-bottom: 1px solid wheat;
+}
+
+.Approve{
+    color:teal;
+    text-decoration: none;
+}
+
+.Delete{
+    color: tomato;
+    text-decoration: none;
+}
+
+.Approve:hover, .Delete:hover{
+    text-decoration: underline;
+}
